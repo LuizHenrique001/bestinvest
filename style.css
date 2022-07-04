@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
+:root {
+    --cor1: #1e1f29;
+    --cor2: #45b8ed;
+    --cor3: #f3f3f3;
+    --cor4: #6092ac;
+}
+
+body {
+    background-image: linear-gradient(to right, rgb(235, 235, 236), rgb(208, 208, 220));
+}
+
+/* Nav do site */
+
+.logo_do_site {
+    width: 300px;
+    height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.navbar_principal {
+    width: 100%;
+    height: 50%;
+    background-color: #16171e;
+    margin-bottom: 30px;
+}
+
+
+/* carteira do usuário */
+
+.nome_do_site {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: #16171e;
+    padding: 18px;
+    color: orange;
+}
+
+.carteira {
+    max-width: 400px;
+    height: 300px;
+    background-color: var(--cor1);
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.436);
+}
+
+.adicionar_dinheiro {
+    margin: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    background-color: orange;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.retirar_dinheiro {
+    margin: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    background-color: orange;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.adicionar_dinheiro:hover {
+    background-color: rgb(255, 184, 53);
+}
+
+.retirar_dinheiro:hover {
+    background-color: rgb(255, 184, 53);
+}
+
+.bloco1 {
+/*Div Botoes adicionar e Retirar*/
+    display: flex;
+}
+
+.dinheiro_carteira {
+    width: 290px;
+    height: 140px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right ,#2e2f3e, #3f4155);
+    margin: auto;
+    margin-top: 30px;
+}
+
+.dinheiro_investido_usuário {
+    text-align: center;
+    padding: 53px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 28px;
+}
+
+/* Opções de Investir */
+
+.container1 {
+    width: 100%;
+    height: 700px;
+    background-color: black;
+    margin-top: 40px;
+}
+
+.tesouro_direto {
+    width: 200px;
+    height: 30px;
+    display: flex;
+    background-image: linear-gradient(to right ,#2e2f3e,#1c1d26);
+    border-radius: 10px;
+    margin: 30px 0px 0px 15px;
+    padding: 20px 30px;
+}
+
+.tesouro_direto p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    padding-top: 8px;
+}
+
+.rentabilidade_tesouro_direto {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+    margin-left: 25px;  
+    border-radius: 10px;
+}
