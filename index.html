@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestInvest</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <nav class="navbar_principal">
@@ -13,12 +13,12 @@
     </nav>
     <main class="carteira">
         <div class="bloco1">
-            <p class="adicionar_dinheiro">Adicionar</p>
+            <p onclick="adicionarDinheiro()" class="adicionar_dinheiro">Adicionar</p>
             <p
             class="retirar_dinheiro">Retirar</p>
         </div>
         <div class="dinheiro_carteira">
-            <h1 class="dinheiro_investido_usuário">R$0</h1>
+            <p class="dinheiro_investido_usuario"></p>
         </div>
     </main>
     <div class="container1">
@@ -30,6 +30,6 @@
             <p class="rentabilidade_tesouro_direto">12%</p>
         </div>
     </div>
-    <script src="javascript.js"></script>
+    <script src="./js/javascript.js"></script>
 </body>
 </html>
