@@ -11,14 +11,39 @@
     <nav class="navbar_principal">
         <p class="centralizar_logo"><img class="logo_do_site" src="images/Sem título41.png" alt="Logo do site"></p>
     </nav>
+    <div class="div_saldo_usuario">
+        <h1 class="titulo_saldo">
+            Saldo Atual
+        </h1>
+        <div class="saldo_atual">
+        </div>
+    </div>
     <main class="carteira">
         <div class="bloco1">
-            <p onclick="adicionarDinheiro()" class="adicionar_dinheiro">Adicionar</p>
-            <p
-            class="retirar_dinheiro">Retirar</p>
+        <p onclick="adicionarDinheiro()" class="adicionar_dinheiro">Adicionar</p>
+        <p onclick="retirarDinheiro()"
+        class="retirar_dinheiro">Retirar</p>
+        </div>
+        <div class="div_adicionar_investimento">
+        <input class="valor_adicionar" type="text">
+        </input>
+        <p class="btn_adicionar_dinheiro">
+            <a onclick="adicionarNovoInvestimento()">Confirmar</a>
+        </p>
+        <div class="div_sair_erros"></div>
+        </div>
+        <div class="div_retirar_investimento">
+            <input class="valor_retirar" type="text">
+            </input>
+            <p class="btn_adicionar_dinheiro">
+                <a onclick="retirarInvestimento()">Confirmar</a>
+            </p>
+            <div class="div_sair_erros_retirar"></div>
         </div>
         <div class="dinheiro_carteira">
-            <p class="dinheiro_investido_usuario"></p>
+            <p class="dinheiro_investido_usuario">
+                R$0,00
+            </p>
         </div>
     </main>
     <div class="container1">
