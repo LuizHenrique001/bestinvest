@@ -83,7 +83,7 @@ function retirarInvestimento() {
         investido_total = parseFloat(JSON.
             parse(localStorage.getItem('investido'))) - parseFloat(valor_retirar_formatado)
         saldo_atual.innerHTML = 'R$'+`${dinheiro_total}`+',00'
-        dinheiro_investido_usuario.innerHTML = 'R$'+`${}`+',00'
+        dinheiro_investido_usuario.innerHTML = 'R$'+`${JSON.parse(localStorage.getItem('investido'))}`+',00'
         alert('Transação concluida!')
         div_retirar_investimento.style.display = 'none'
     }
