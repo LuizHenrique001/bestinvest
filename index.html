@@ -48,11 +48,30 @@
     </main>
     <div class="container1">
         <h1 class="nome_do_site">BestInvest</h1>
-        <div class="tesouro_direto">
-            <p>
-                Tesouro Direto
-            </p>
-            <p class="rentabilidade_tesouro_direto">12%</p>
+        <div onclick="aparecerOpcao_1()" class="div_investir">
+            <div class="investir_bloco1">
+                <p>
+                    Tesouro Direto
+                </p>
+                <p class="rentabilidade">12%</p>
+            </div>
+            <div class="btn_render" id="tesouro_direto">
+                <p class="btn_comecar" onclick="opcaoRentabilidade(12)">Começar</p>
+                <p class="btn_parar" onclick="pararRentabilidade()">Parar</p>
+            </div>
+        </div>
+
+        <div onclick="aparecerOpcao_2()" class="div_investir">
+            <div class="investir_bloco1">
+                <p>
+                    Tesouro Selic
+                </p>
+                <p class="rentabilidade">8%</p>
+            </div>
+            <div class="btn_render" id="tesouro_selic">
+                <p class="btn_comecar" onclick="opcaoRentabilidade(8)">Começar</p>
+                <p class="btn_parar" onclick="pararRentabilidade()">Parar</p>
+            </div>
         </div>
     </div>
     <script src="./js/javascript.js"></script>
