@@ -7,7 +7,7 @@ let dinheiro_total = 0 // Valor total na conta não investido
 dinheiro_total = valor_adicionar
 
 //Já começa com 10k na conta se o valor for 0
-saldo_atual.innerHTML = 'R$'+`${dinheiro_total}`+',00'
+saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
 
 
 let div_adicionar_investimento = document.querySelector('div.div_adicionar_investimento')
@@ -40,11 +40,10 @@ function adicionarNovoInvestimento() {
     }else {
         div_sair_erros.innerHTML = ''
         dinheiro_total = parseFloat(dinheiro_total) - parseFloat(valor_input_formatado)
-
         investido_total += parseFloat(valor_input_formatado)
-        saldo_atual.innerHTML = 'R$'+`${dinheiro_total}`+',00'
 
-        dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total}`+',00'
+        saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
+        dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
 
         alert('Transação concluida!')
         div_adicionar_investimento.style.display = 'none'
@@ -82,8 +81,9 @@ function retirarInvestimento() {
         dinheiro_total = parseFloat(dinheiro_total) + parseFloat(valor_retirar_formatado)
         investido_total -= parseFloat(valor_retirar_formatado)
 
-        saldo_atual.innerHTML = 'R$'+`${dinheiro_total}`+',00'
-        dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total}`+',00'
+        saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
+        dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
+
         alert('Transação concluida!')
         div_retirar_investimento.style.display = 'none'
     }
@@ -114,10 +114,13 @@ function opcaoRentabilidade(valor) {
 
     tempo_rentabilidade = setInterval(function(){
     investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
-    dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total}`
+    dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
     }, 2000)
+
+    dinheiro_investido_usuario.style.color = 'rgb(0, 176, 0)'
 }
 
 function pararRentabilidade() {
     clearInterval(tempo_rentabilidade)
+    dinheiro_investido_usuario.style.color = 'white'
 }
