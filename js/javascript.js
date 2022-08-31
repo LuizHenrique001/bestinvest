@@ -83,7 +83,6 @@ function retirarInvestimento() {
 
         saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
         dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
-
         alert('Transação concluida!')
         div_retirar_investimento.style.display = 'none'
     }
@@ -93,25 +92,51 @@ function retirarInvestimento() {
 
 let btn_direto = document.querySelector('div#tesouro_direto')
 let btn_selic = document.querySelector('div#tesouro_selic')
+let btn_ipca = document.querySelector('div#ipca')
 
 function aparecerOpcao_1() {
-    if(btn_direto.style.display == 'flex') {
+    if(btn_direto.style.display == 'table') {
         btn_direto.style.display = 'none'
     }else {
-        btn_direto.style.display = 'flex'
+        btn_direto.style.display = 'table'
     }
 }
 
 function aparecerOpcao_2() {
-    if(btn_selic.style.display == 'flex') {
+    if(btn_selic.style.display == 'table') {
         btn_selic.style.display = 'none'
     }else {
-        btn_selic.style.display = 'flex'
+        btn_selic.style.display = 'table'
     }
 }
 
-function opcaoRentabilidade(valor) {
+function aparecerOpcao_3() {
+    if(btn_ipca.style.display == 'table') {
+        btn_ipca.style.display = 'none'
+    }else {
+        btn_ipca.style.display = 'table'
+    }
+}
 
+function opcaoRentabilidadeDireto(valor) {
+    tempo_rentabilidade = setInterval(function(){
+    investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
+    dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
+    }, 2000)
+
+    dinheiro_investido_usuario.style.color = 'rgb(0, 176, 0)'
+}
+
+function opcaoRentabilidadeSelic(valor) {
+    tempo_rentabilidade = setInterval(function(){
+    investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
+    dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
+    }, 2000)
+
+    dinheiro_investido_usuario.style.color = 'rgb(0, 176, 0)'
+}
+
+function opcaoRentabilidadeIpca(valor) {
     tempo_rentabilidade = setInterval(function(){
     investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
     dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
@@ -124,3 +149,21 @@ function pararRentabilidade() {
     clearInterval(tempo_rentabilidade)
     dinheiro_investido_usuario.style.color = 'white'
 }
+
+//Botões enter e etc...
+let confirmar_enter_adicionar = document.querySelector('a#confirmar_adicionar')
+let confirmar_enter_retirar = document.querySelector('a#confirmar_retirar')
+valor_input_adicionar.addEventListener('keyup', function(event) {
+    if(event.keyCode === 13){
+        event.preventDefault()
+        confirmar_enter_adicionar.click()
+    }
+})
+
+
+valor_retirar.addEventListener('keyup', function(event){
+    if(event.keyCode === 13){
+        event.preventDefault()
+        confirmar_enter_retirar.click()
+    }
+})
