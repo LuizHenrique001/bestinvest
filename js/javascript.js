@@ -21,6 +21,7 @@ function adicionarDinheiro() {//Para abrir uma aba
         div_adicionar_investimento.style.display = 'none'
     }else {
         div_adicionar_investimento.style.display = 'inline-flex'
+        div_retirar_investimento.style.display = 'none'
     }
 }
 
@@ -59,8 +60,10 @@ function retirarDinheiro() {
         div_retirar_investimento.style.display = 'none'
     }else {
         div_retirar_investimento.style.display = 'inline-flex'
+        div_adicionar_investimento.style.display = 'none'
     }
 }
+
 
 function retirarInvestimento() {
     div_adicionar_investimento.style.display = 'none'
@@ -84,6 +87,7 @@ function retirarInvestimento() {
         saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
         dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
         alert('Transação concluida!')
+        valor_retirar_formatado = 'r'
         div_retirar_investimento.style.display = 'none'
     }
 }
@@ -119,7 +123,7 @@ function aparecerOpcao_3() {
 }
 
 function opcaoRentabilidadeDireto(valor) {
-    tempo_rentabilidade = setInterval(function(){
+    tempo_rentabilidade_direto = setInterval(function(){
     investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
     dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
     }, 2000)
@@ -128,7 +132,7 @@ function opcaoRentabilidadeDireto(valor) {
 }
 
 function opcaoRentabilidadeSelic(valor) {
-    tempo_rentabilidade = setInterval(function(){
+    tempo_rentabilidade_selic = setInterval(function(){
     investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
     dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
     }, 2000)
@@ -137,7 +141,7 @@ function opcaoRentabilidadeSelic(valor) {
 }
 
 function opcaoRentabilidadeIpca(valor) {
-    tempo_rentabilidade = setInterval(function(){
+    tempo_rentabilidade_ipca = setInterval(function(){
     investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
     dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
     }, 2000)
@@ -145,8 +149,8 @@ function opcaoRentabilidadeIpca(valor) {
     dinheiro_investido_usuario.style.color = 'rgb(0, 176, 0)'
 }
 
-function pararRentabilidade() {
-    clearInterval(tempo_rentabilidade)
+function pararRentabilidade(valor) {
+    clearInterval(valor)
     dinheiro_investido_usuario.style.color = 'white'
 }
 
