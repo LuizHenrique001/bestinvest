@@ -142,8 +142,8 @@ function opcaoRentabilidadeSelic(valor) {
 
 function opcaoRentabilidadeIpca(valor) {
     tempo_rentabilidade_ipca = setInterval(function(){
-    investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
-    dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
+        investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
+        dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
     }, 2000)
 
     dinheiro_investido_usuario.style.color = 'rgb(0, 176, 0)'
@@ -171,3 +171,22 @@ valor_retirar.addEventListener('keyup', function(event){
         confirmar_enter_retirar.click()
     }
 })
+
+// Faturamento Usuário
+
+let bloco_faturamento = document.querySelector('div.bloco_faturamento')
+let faturamento_total = document.querySelector('p.faturamento_total')
+
+let tesouro_direto_faturamento = 0
+let tesouro_selic_faturamento = 0
+let tesouro_ipca_faturamento = 0
+
+faturamento_total.innerHTML = 'Tesouro IPCA '+ parseFloat(investido_total)
+
+function verFaturamento() {
+    if(bloco_faturamento.style.display == 'none') {
+        bloco_faturamento.style.display = 'flex'
+    }else {
+        bloco_faturamento.style.display = 'none'
+    }
+}
