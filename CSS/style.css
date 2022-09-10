@@ -65,7 +65,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     transition: .3s;
-    cursor: pointer;
+    cursor:pointer;
 }
 
 .retirar_dinheiro {
@@ -79,6 +79,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     transition: .3s;
+    cursor:pointer;
 }
 
 .adicionar_dinheiro:hover {
@@ -135,7 +136,6 @@ body {
     background-color: #2e2f3e;
     padding: 20px 0px 20px 0px;
     transition: .2s;
-    cursor: pointer;
 }
 
 .div_investir:hover {
@@ -187,7 +187,7 @@ body {
 .btn_adicionar_dinheiro {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    cursor: pointer;
+    cursor:pointer;
 }
 
 .btn_adicionar_dinheiro a {
@@ -271,6 +271,7 @@ body {
     border-radius: 8px;
     margin: 8px 3px 3px 25px;
     transition: .3s;
+    cursor:pointer;
 }
 
 .btn_comecar:hover {
@@ -286,6 +287,7 @@ body {
     border-radius: 8px;
     margin: 8px 3px 3px 3px;
     transition: .3s;
+    cursor:pointer;
 }
 
 .btn_parar:hover {
@@ -348,7 +350,7 @@ footer {
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    margin: 20px 0px 10px 20px;
+    margin: 0px 0px 10px 20px;
     background-color: orange;
     border-radius: 6px;
     transition: .2s;
@@ -376,4 +378,34 @@ footer {
     padding: 17px;
     border-radius: 5px;
     font-size: 19px;
+}
+
+/* CriptoMoedas */
+
+.container2 {
+    display: table;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container-cripto {
+    display: flex;
+    width: 200px;
+    height: 100px;
+    margin: 30px 0px;
+}
+
+.container-cripto img {
+    width: 50px;
+}
+
+.titulo_criptomoedas {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: orange;
+    background-color: #16171e;
+    padding: 18px;
+    text-align: center;
 }

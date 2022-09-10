@@ -4,14 +4,17 @@ let div_sair_erros = document.querySelector('div.div_sair_erros')
 let saldo_atual = document.querySelector('div.saldo_atual')
 let valor_adicionar = 10000
 let dinheiro_total = 0 // Valor total na conta não investido
-dinheiro_total = valor_adicionar
+dinheiro_total = JSON.parse(localStorage.getItem('dinheiro_total'))
+//dinheiro_total = valor_adicionar
 
 //Já começa com 10k na conta se o valor for 0
-saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
+saldo_atual.innerHTML = 'R$'+`${JSON.parse(localStorage.getItem('dinheiro_total')).toFixed(2).replace('.', ',')}`
 
 
 let div_adicionar_investimento = document.querySelector('div.div_adicionar_investimento')
 let investido_total = 0 // Investimento do usuário
+investido_total = JSON.parse(localStorage.getItem('investido_total'))
+dinheiro_investido_usuario.innerHTML = 'R$'+JSON.parse(localStorage.getItem('investido_total')).toFixed(2).replace('.', ',')
 
 
 let valor_input_adicionar = document.querySelector('input.valor_adicionar')
@@ -45,6 +48,17 @@ function adicionarNovoInvestimento() {
 
         saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
         dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
+        if(JSON.parse(localStorage.getItem('dinheiro_total')) == 0 || NaN) {
+            localStorage.setItem('dinheiro_total', dinheiro_total)
+        }else {
+            localStorage.setItem('dinheiro_total', dinheiro_total)
+        }
+
+        if(JSON.parse(localStorage.getItem('investido_total')) == 0 || NaN) {
+            localStorage.setItem('investido_total', investido_total)
+        }else {
+            localStorage.setItem('investido_total', investido_total)
+        }
 
         alert('Transação concluida!')
         div_adicionar_investimento.style.display = 'none'
@@ -86,8 +100,19 @@ function retirarInvestimento() {
 
         saldo_atual.innerHTML = 'R$'+`${dinheiro_total.toFixed(2).replace('.', ',')}`
         dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
+        if(JSON.parse(localStorage.getItem('dinheiro_total')) == 0 || NaN) {
+            localStorage.setItem('dinheiro_total', dinheiro_total)
+        }else {
+            localStorage.setItem('dinheiro_total', dinheiro_total)
+        }
+
+        if(JSON.parse(localStorage.getItem('investido_total')) == 0 || NaN) {
+            localStorage.setItem('investido_total', investido_total)
+        }else {
+            localStorage.setItem('investido_total', investido_total)
+        }
         alert('Transação concluida!')
-        valor_retirar_formatado = 'r'
+        valor_retirar_formatado = ''
         div_retirar_investimento.style.display = 'none'
     }
 }
@@ -145,7 +170,6 @@ function opcaoRentabilidadeIpca(valor) {
         investido_total = parseInt(investido_total) + (parseInt(investido_total) * valor / 100)
         dinheiro_investido_usuario.innerHTML = 'R$'+`${investido_total.toFixed(2).replace('.', ',')}`
     }, 2000)
-
     dinheiro_investido_usuario.style.color = 'rgb(0, 176, 0)'
 }
 
@@ -181,7 +205,6 @@ let tesouro_direto_faturamento = 0
 let tesouro_selic_faturamento = 0
 let tesouro_ipca_faturamento = 0
 
-faturamento_total.innerHTML = 'Tesouro IPCA '+ parseFloat(investido_total)
 
 function verFaturamento() {
     if(bloco_faturamento.style.display == 'none') {
@@ -190,3 +213,5 @@ function verFaturamento() {
         bloco_faturamento.style.display = 'none'
     }
 }
+
+
