@@ -383,22 +383,28 @@ footer {
 /* CriptoMoedas */
 
 .container2 {
-    display: table;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     width: 100%;
 }
 
 .container-cripto {
-    display: flex;
-    width: 200px;
+    display: flex; 
+    width: 280px;
     height: 100px;
-    margin: 30px 0px;
+    margin: 30px 20px;
+    background-color:#2e2f3e;
+    border-radius: 8px;
+    text-align: center;
+    transition: .3s; 
+}
+
+.container-cripto:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.545);
 }
 
 .container-cripto img {
-    width: 50px;
+    width: 60px;
+    height: 60px;
+    padding: 20px 0px 0px 20px;
 }
 
 .titulo_criptomoedas {
@@ -408,4 +414,19 @@ footer {
     background-color: #16171e;
     padding: 18px;
     text-align: center;
+}
+
+.nome_criptomoeda {
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px 0px 0px 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.cotacao-cripto {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    text-align: center;
+    color: red;
+    padding: 40px 0px 0px 10px;
 }
