@@ -1,11 +1,15 @@
-@charset "UTF-8";
-
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+
+/*------------*/
 
 :root {
     --cor1: #1e1f29;
@@ -21,40 +25,41 @@ body {
 /* Nav do site */
 
 .logo_do_site {
-    width: 300px;
-    height: 100%;
-    margin: auto;
-    display: block;
+    width: 100%;
+    max-width: 250px;
 }
 
 .navbar_principal {
     width: 100%;
-    height: 50%;
     background-color: #16171e;
 }
 
+.centralizar_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* carteira do usuário */
 
-.nome_do_site {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    background-color: #16171e;
-    padding: 18px;
-    color: orange;
+.container_carteira {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .carteira {
+    width: 100%;
     max-width: 400px;
     height: 300px;
     background-color: var(--cor1);
     border-radius: 10px;
-    margin: auto;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.436);
+    margin: 35px 0;
 }
 
-.adicionar_dinheiro {
+.adicionar_dinheiro_btn {
     margin: 12px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
@@ -68,7 +73,7 @@ body {
     cursor:pointer;
 }
 
-.retirar_dinheiro {
+.retirar_dinheiro_btn {
     margin: 12px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
@@ -82,28 +87,22 @@ body {
     cursor:pointer;
 }
 
-.adicionar_dinheiro:hover {
+.adicionar_dinheiro_btn:hover {
     background-color: rgb(219, 147, 13);
 }
 
-.retirar_dinheiro:hover {
+.retirar_dinheiro_btn:hover {
     background-color: rgb(199, 129, 0);
 }
 
-.saida_erro_adicionar {
-    font-family: 'Montserrat', sans-serif;
-    color: red;
-    padding: 7px;
-}
 
-
-.bloco1 {
+.opcao_carteira {
 /*Div Botoes adicionar e Retirar*/
     display: flex;
 }
 
 .dinheiro_carteira {
-    width: 290px;
+    max-width: 290px;
     height: 140px;
     border-radius: 10px;
     background-image: linear-gradient(to right ,#2e2f3e, #3f4155);
@@ -121,119 +120,12 @@ body {
     align-items: center;
 }
 
-/* Opções de Investir */
-
-.container1 {
-    width: 100%;
-    height: 100%;
-    margin-top: 40px;
-}
-
-.div_investir {
-    width: 100%;
-    height: 30px;
-    display: table;
-    background-color: #2e2f3e;
-    padding: 20px 0px 20px 0px;
-    transition: .2s;
-}
-
-.div_investir:hover {
-    background-color: #18181e;
-}
-
-.investir_bloco1 {
-    display: inline-flex;
-}
-
-
-.div_investir .investir_bloco1 p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: white;
-    padding: 8px 0px 8px 25px;
-}
-.rentabilidade {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: white;
-    margin-left: 25px;  
-    border-radius: 10px;
-}
-
-/*Opçoes de adicionar e retirar dinheiro*/
-
-.div_adicionar_investimento {
-    display: none;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    width: 100%;
-}
-
-.valor_adicionar {
-    border: none;
-    outline: none;
-    height: 35px;
-    width: 80px;
-    background-color: #3f4155;
-    margin: 10px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    text-align: center;
-}
-
-.btn_adicionar_dinheiro {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    cursor:pointer;
-}
-
-.btn_adicionar_dinheiro a {
-    text-decoration: none;
-    color: white; 
-    padding: 10px;
-    background-color: orange;
-    border-radius: 5px;
-    transition: .3s;
-}
-
-.btn_adicionar_dinheiro a:hover {
-    background-color: rgb(255, 184, 53);
-}
-
-/* Aba retirar Investimentos */
-
-.div_retirar_investimento {
-    display: none;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    width: 100%;
-}
-
-.valor_retirar {
-    border: none;
-    outline: none;
-    height: 35px;
-    width: 80px;
-    background-color: #3f4155;
-    margin: 10px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    text-align: center;
-}
-
-
 /* Saldo Atual */
 
 .div_saldo_usuario {
     width: 100%;
-    height: 250px;
+    height: 220px;
     background-color: #1e1f29;
-    margin-bottom: 30px;
 }
 
 .saldo_atual {
@@ -252,76 +144,148 @@ body {
     padding: 50px 0px 0px 60px; 
 }
 
-/* Btn para comecar ou parar de render */
+/* Input Carteira */
 
-.btn_render {
+.label_dinheiro {
+    padding: 10px 10px 0 10px;
+}
+
+#label_add_dinheiro {
     display: none;
 }
 
-.container_btn_investimento {
+#label_retirar_dinheiro {
+    display: none;
+}
+
+.label_dinheiro > input {
+    border: 2px solid rgb(0, 0, 0);
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    max-width: 120px;
+    border-radius: 5px;
+    background-color: #2e2f3e;
+    color: white;
+    font-size: 18px;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin-right: 10px;
+}
+
+.label_dinheiro > input[type=number]::-webkit-inner-spin-button  {
+    -webkit-appearance: none;
+}
+
+.btn_input {
+    border: none;
+    background-color: #45b8ed;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn_input:hover {
+    background-color: #348cb4;
+}
+
+/* Mensagens na tela */
+
+.container_popup {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 100%;
+    max-width: 220px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: white;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container_popup h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(38, 197, 38);
+    padding-top: 21px;
+}
+
+.container_popup_erro {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 100%;
+    max-width: 220px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(255, 247, 247);
+    overflow: hidden;
+}
+
+.container_popup_erro h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(135, 18, 18);
+    padding-top: 21px;
+}
+
+.bloco_popup {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn_comecar {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: white;
-    padding: 10px;
-    background-color: rgb(0, 175, 23);
-    border-radius: 8px;
-    margin: 8px 3px 3px 25px;
-    transition: .3s;
-    cursor:pointer;
+.barra_popup {
+    background-color: rgb(255, 0, 0);
+    width: 0%;
+    height: 5px;
+    margin-top: 13px;
 }
 
-.btn_comecar:hover {
-    background-color: rgb(0, 117, 16);
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #242424;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: rgb(59, 59, 59);
+    border: 2px solid #242424;
 }
 
-.btn_parar {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: white;
-    background-color: red;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 8px 3px 3px 3px;
-    transition: .3s;
-    cursor:pointer;
-}
-
-.btn_parar:hover {
-    background-color: rgb(172, 0, 0);
-}
-
-/* Informações sobre o investimento */
-
-.container_info_investimento {
-    display: block;
-}
-
-.info_investimento {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    padding: 8px 0px 8px 25px;
-    transition: .3s;
-    border-bottom: 1px solid black;
-    margin-left: 25px;
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(110, 110, 110);
 }
 
 /* Footer do site */
 
 footer {
     width: 100%;
-    height: 250px;
     background-color: rgb(8, 9, 12);
     justify-content: bottom;
     align-items: center;
 }
 
+.bloco_footer {
+    padding: 60px 0;
+}
+
+
 .info_site_footer {
-    padding-top: 55px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     color: rgb(115, 115, 115);
@@ -334,99 +298,11 @@ footer {
     background-color: black;
     color: white;
     font-weight: bold;
-    padding: 10px;
-    margin-top: 100px;
+    padding: 20px;
 }
 
 .direitos_autorais a {
     padding: 10px;
     color: white;
     text-decoration: none;
-}
-
-/* Aba faturamento dos investimentos */
-
-.btn_ver_faturamento {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    margin: 0px 0px 10px 20px;
-    background-color: orange;
-    border-radius: 6px;
-    transition: .2s;
-    padding: 10px;
-    width: 130px;
-    cursor: pointer;
-}
-
-.btn_ver_faturamento:hover {
-    background-color: rgb(211, 137, 0);
-}
-
-.bloco_faturamento {
-    display: none;
-    width: 100%;
-    height: 120px;
-    margin: 30px 0px;
-    background-color: #1e1f29;
-}
-
-.faturamento_total {
-    display: flex;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    padding: 17px;
-    border-radius: 5px;
-    font-size: 19px;
-}
-
-/* CriptoMoedas */
-
-.container2 {
-    width: 100%;
-}
-
-.container-cripto {
-    display: flex; 
-    width: 280px;
-    height: 100px;
-    margin: 30px 20px;
-    background-color:#2e2f3e;
-    border-radius: 8px;
-    text-align: center;
-    transition: .3s; 
-}
-
-.container-cripto:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.545);
-}
-
-.container-cripto img {
-    width: 60px;
-    height: 60px;
-    padding: 20px 0px 0px 20px;
-}
-
-.titulo_criptomoedas {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: orange;
-    background-color: #16171e;
-    padding: 18px;
-    text-align: center;
-}
-
-.nome_criptomoeda {
-    font-family: 'Montserrat', sans-serif;
-    padding: 40px 0px 0px 10px;
-    color: white;
-    font-weight: bold;
-}
-
-.cotacao-cripto {
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px;
-    text-align: center;
-    color: red;
-    padding: 40px 0px 0px 10px;
 }

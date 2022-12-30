@@ -13,141 +13,60 @@
     <link rel="shortcut icon" href="images/favicon-logo.png" type="image/x-icon">
 
     <!-- JS -->
-    <script src="./js/javascript.js" defer></script>
-
-    <!-- CriptoMoedas -->
+    <script src="./js/jquery-3.6.2.min.js" defer></script>
+    <script src="./js/system.js" defer></script>
     <script src="./js/criptomoedas.js" defer></script>
+
 </head>
 <body>
-    <nav class="navbar_principal">
-        <p class="centralizar_logo"><img class="logo_do_site" src="images/img-logo-site.png" alt="Logo do site"></p>
-    </nav>
+    <header>
+        <nav class="navbar_principal">
+            <div class="centralizar_logo"><img class="logo_do_site" src="images/img-logo-site.png" alt="Logo do site"></div>
+        </nav>
+    </header><!--header-->
     <div class="div_saldo_usuario">
         <h1 class="titulo_saldo">
             Saldo Atual
         </h1>
         <div class="saldo_atual">
+            <!-- Saldo Atual -->
         </div>
-    </div>
-    <div class="container_faturamento">
-        <p class="btn_ver_faturamento" onclick="verFaturamento()">Ver faturamento</p>
-        <div class="bloco_faturamento">
-            <p class="faturamento_total">Vazio :(</p>
-        </div>
-    </div>
-    <main class="carteira">
-        <div class="bloco1">
-        <p onclick="adicionarDinheiro()" class="adicionar_dinheiro">Adicionar</p>
-        <p onclick="retirarDinheiro()"
-        class="retirar_dinheiro">Retirar</p>
-        </div>
-        <div class="div_adicionar_investimento">
-        <input class="valor_adicionar" type="text">
-        </input>
-        <p class="btn_adicionar_dinheiro">
-            <a onclick="adicionarNovoInvestimento()" id="confirmar_adicionar">Confirmar</a>
-        </p>
-        <div class="div_sair_erros"></div>
-        </div>
-        <div class="div_retirar_investimento">
-            <input class="valor_retirar" type="text">
-            </input>
-            <p class="btn_adicionar_dinheiro">
-                <a onclick="retirarInvestimento()" id="confirmar_retirar">Confirmar</a>
-            </p>
-            <div class="div_sair_erros_retirar"></div>
-        </div>
-        <div class="dinheiro_carteira">
-            <p class="dinheiro_investido_usuario">
-                R$0,00
-            </p>
-        </div>
-    </main>
-    <div class="container1">
-        <h1 class="nome_do_site">BestInvest</h1>
-        <div onclick="aparecerOpcao_1()" class="div_investir">
-            <div class="investir_bloco1">
-                <p>
-                    Tesouro Direto
+    </div><!--div_saldo_usuario-->
+    <main class="container_carteira">
+        <div class="carteira">
+            <div class="opcao_carteira">
+                <p class="adicionar_dinheiro_btn">Adicionar</p>
+                <p class="retirar_dinheiro_btn">Retirar</p>
+            </div><!--opcao_carteira-->
+            <div class="input_carteira">
+                <div class="label_dinheiro" id="label_add_dinheiro">
+                    <input type="number" id="add_dinheiro" placeholder="Adicionar">
+                    <button type="submit" class="btn_input" id="btn_add_investimento">Confirmar</button>
+                </div>
+                <div class="label_dinheiro" id="label_retirar_dinheiro">
+                    <input type="number" id="retirar_dinheiro" placeholder="Retirar">
+                    <button type="submit" class="btn_input" id="btn_retirar_investimento">Confirmar</button>
+                </div>
+            </div>
+            <div class="dinheiro_carteira">
+                <p class="dinheiro_investido_usuario">
+                    <!-- Dinheiro Investido -->
                 </p>
-                <p class="rentabilidade">12%</p>
-            </div>
-            <div class="btn_render" id="tesouro_direto">
-                <div class="container_info_investimento">
-                    <p class="info_investimento">22% imposto</p>
-                    <p class="info_investimento">12% a.a</p>
-                    <p class="info_investimento">Mínimo R$1,00</p>
-                </div>
-                <div class="container_btn_investimento">
-                    <p class="btn_comecar" onclick="opcaoRentabilidadeDireto(12)">Começar</p>
-                    <p class="btn_parar" onclick="pararRentabilidade(tempo_rentabilidade_direto)">Parar</p>
-                </div>
-            </div>
-        </div>
-
-        <div onclick="aparecerOpcao_2()" class="div_investir">
-            <div class="investir_bloco1">
-                <p>
-                    Tesouro Selic
-                </p>
-                <p class="rentabilidade">8%</p>
-            </div>
-            <div class="btn_render" id="tesouro_selic">
-                <div class="container_info_investimento">
-                    <p class="info_investimento">Isento</p>
-                    <p class="info_investimento">8% a.a</p>
-                    <p class="info_investimento">Mínimo R$30,00</p>
-                </div>
-                <div class="container_btn_investimento">
-                    <p class="btn_comecar" onclick="opcaoRentabilidadeSelic(8)">Começar</p>
-                    <p class="btn_parar" onclick="pararRentabilidade(tempo_rentabilidade_selic)">Parar</p>
-                </div>
-            </div>
-        </div>
-
-        <div onclick="aparecerOpcao_3()" class="div_investir">
-            <div class="investir_bloco1">
-                <p>
-                    IPCA
-                </p>
-                <p class="rentabilidade">5%</p>
-            </div>
-            <div class="btn_render" id="ipca">
-                <div class="container_info_investimento">
-                    <p class="info_investimento">13% imposto</p>
-                    <p class="info_investimento">5,3% a.a</p>
-                    <p class="info_investimento">Mínimo R$100,00</p>
-                </div>
-                <div class="container_btn_investimento">
-                    <p class="btn_comecar" onclick="opcaoRentabilidadeIpca(5.3)">Começar</p>
-                    <p class="btn_parar" onclick="pararRentabilidade(tempo_rentabilidade_ipca)">Parar</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h1 class="titulo_criptomoedas">
-        CriptoMoedas
-    </h1>
-
-    <div class="container2">
-        <div class="container-cripto">
-            <img src="images/bitcoin-logo.png" alt="Imagem Bitcoin">
-            <p class="nome_criptomoeda">
-                Bitcoin
-            </p>
-            <p class="cotacao-cripto">R$ 105.712,98</p>
-        </div>
-    </div>
+            </div><!--dinheiro_carteira-->
+        </div><!--carteira-->
+    </main><!--container_carteira-->
 
     <footer>
-        <p class="info_site_footer">
-            BestInvest <br>
-            Todos os direitos reservados<br>
-            &copy;  BestInvest - 2022
-        </p>
+        <div class="bloco_footer">
+            <p class="info_site_footer">
+                Todos os direitos reservados
+                &copy;  BestInvest - 2022
+            </p>
+        </div><!--bloco_footer-->
         <p class="direitos_autorais">
             Create by <a href="#">Luiz</a>
-        </p>
-    </footer>
+        </p><!--direitos_autorais-->
+    </footer><!--footer-->
+    <div class="popup"></div>
 </body>
 </html>
